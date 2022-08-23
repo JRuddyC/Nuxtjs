@@ -103,9 +103,24 @@ export default {
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: 'mdi-cart-variant',
+          title: 'Store',
+          to: '/store'
+        },
+        {
+          icon: 'mdi-archive-edit-outline',
+          title: 'Register',
+          to: '/register'
+        },
+        {
+          icon: 'mdi-cash-multiple',
+          title: 'Sales',
+          to: '/sales'
+        },
+        {
+          icon: 'mdi-chart-line',
+          title: 'Stats',
+          to: '/stats'
         }
       ],
       miniVariant: false,
