@@ -43,20 +43,14 @@
           class="mr-4"
           @click="validate"
           >
-          Validate
-        </v-btn>
-        <v-btn
-          color="error"
-          class="mr-4"
-          @click="reset"
-          >
-          Reset Form
+          Registrar
         </v-btn>
         <v-btn
           color="warning"
-          @click="resetValidation"
+          class="mr-4"
+          @click="reset"
           >
-          Reset Validation
+          Limpiar registro
         </v-btn>
     </v-container>
   </v-form>
@@ -70,8 +64,8 @@
       descripcion: '',
       categoria: '',
       nameRules: [
-        v => !!v || 'Name is required',
-        v => v.length <= 30 || 'Name must be less than 10 characters',
+        v => !!v || 'Dato requerido',
+        v => v.length <= 30 || 'El dato debe tener menos de 30 caracteres',
       ]
       
     }),
@@ -81,9 +75,6 @@
       },
       reset () {
         this.$refs.form.reset()
-      },
-      resetValidation () {
-        this.$refs.form.resetValidation()
       },
     },
   }
