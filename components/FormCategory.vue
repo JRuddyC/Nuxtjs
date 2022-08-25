@@ -1,5 +1,7 @@
 <template>
-  <v-form v-model="valid">
+  <v-form ref="form"
+    v-model="valid"
+    lazy-validation>
     <v-container
     id="form"
     >
@@ -7,7 +9,7 @@
             v-model="nombre"
             :rules="nameRules"
             :counter="30"
-            label="Nombre del producto"
+            label="Nombre de categoria"
             required
           ></v-text-field>
 
@@ -15,30 +17,9 @@
             v-model="descripcion"
             :rules="nameRules"
             :counter="30"
-            label="Descripcion del producto"
+            label="Descripcion de categoria"
             required
           ></v-text-field>
-
-          <v-select
-          label="Categoria del producto"
-          required
-        ></v-select>
-
-        <v-text-field
-          label="Cantidad"
-          value="0"
-          type="number"
-          prefix="Unidades:"
-          required
-        ></v-text-field>
-
-        <v-text-field
-          label="Precio c/u"
-          value="0.00"
-          prefix="$"
-          type="number"
-          required
-        ></v-text-field>
 
         <v-btn
           :disabled="!valid"
@@ -62,24 +43,23 @@
 <script>
   export default {
     data: () => ({
-      valid: false,
+
       valid: true,
       nombre: '',
       descripcion: '',
-      categoria: '',
       nameRules: [
-        v => !!v || 'Dato requerido',
-        v => v.length <= 30 || 'El dato debe tener menos de 30 caracteres',
+        v => !!v || 'Dato requerido'
+        //v => v.length <= 30 || 'El dato debe tener menos de 30 caracteres',
       ]
       
     }),
     methods: {
         validate () {
-        this.$refs.form.validate()
-      },
-      reset () {
-        this.$refs.form.reset()
-      },
+            this.$refs.form.validate()
+        },
+        reset () {
+            this.$refs.form.reset()
+        },
     },
   }
 </script>
