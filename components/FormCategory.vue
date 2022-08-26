@@ -3,7 +3,7 @@
     v-model="valid"
     lazy-validation>
     <v-container
-    id="form"
+    class="padding"
     >
           <v-text-field
             v-model="nombre"
@@ -20,7 +20,7 @@
             label="Descripcion de categoria"
             required
           ></v-text-field>
-
+        
         <v-btn
           :disabled="!valid"
           color="success"
@@ -37,13 +37,13 @@
           >
           Limpiar registro
         </v-btn>
+        
     </v-container>
   </v-form>
 </template>
 <script>
   export default {
     data: () => ({
-
       valid: true,
       nombre: '',
       descripcion: '',
@@ -55,7 +55,19 @@
     }),
     methods: {
         validate () {
-            this.$refs.form.validate()
+            let datos= this.$refs.form.validate()
+            if(datos){
+              this.$axios.$post('http://localhost:9000/api/categorias',{
+              nombre: this.nombre,
+              descripcion: this.descripcion
+            })
+            .then(res =>{
+              console.log(res)
+            })
+            .catch(error =>{
+              console.log(error)
+            })
+            }
         },
         reset () {
             this.$refs.form.reset()
@@ -64,7 +76,7 @@
   }
 </script>
 <style scoped>
-#form{
+.padding{
 padding-left: 10%;
 padding-right: 10%
 }

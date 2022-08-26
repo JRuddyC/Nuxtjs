@@ -1,13 +1,19 @@
 <template>
 <v-container
+class = 'd-flex justify-center'
 >
     <v-card
     elevation="24"
     outlined
     shaped
     id="form"
+    min-width = "450px"
+    width = "600px" 
+    class="margin"
     >
-    <v-card-title>
+        <v-card-title
+        class="d-flex justify-center"
+        >
         REGISTRO DE CATEGORIAS
         </v-card-title>
         <form-category/>
@@ -20,17 +26,8 @@ export default{
 }
 </script>
 <style scoped>
-.v-card__title{
-    justify-content: center;
-}
-#form{
+.margin{
     margin-left: 10%;
-    margin-right: 10%;
-    width: 600px;
-    min-width:450px;
-}
-.container{
-    display: flex;
-    justify-content: center;
+    margin-right: 10%
 }
 </style>
